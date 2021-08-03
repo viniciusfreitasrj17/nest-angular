@@ -20,7 +20,7 @@ export class TasksController {
   }
 
   @Get(':id')
-  async show(@Param('id') id: number): Promise<Task> {
+  async show(@Param('id') id: string): Promise<Task> {
     return this.taskService.show(id);
   }
 
@@ -30,12 +30,12 @@ export class TasksController {
   }
 
   @Put(':id')
-  async edit(@Param('id') id: number, @Body() task: Task): Promise<Task> {
+  async edit(@Param('id') id: string, @Body() task: Task) {
     return this.taskService.edit(id, task);
   }
 
   @Delete(':id')
-  async destroy(@Param('id') id: number) {
+  async destroy(@Param('id') id: string) {
     return this.taskService.destroy(id);
   }
 }
